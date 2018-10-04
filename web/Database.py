@@ -20,7 +20,7 @@ class Database:
 
     def makeUser(self, uid, upass):
         d = self.db 
-        d['users'][str(uid)] = {'password':generate_password_hash(upass)}
+        d['users'].save({"_id":str(uid),'password':generate_password_hash(upass)})
         return 
 
     def getVehicle(self, vnum):
