@@ -23,6 +23,12 @@ class Database:
         d['users'].save({"_id":str(uid),'password':generate_password_hash(upass)})
         return 
 
+    def saveVehicleData(self, data):
+        d = self.db 
+        d['vehicles'].save(data) 
+        return True
+        
+
     def getVehicle(self, vnum):
         d = self.db 
         try:

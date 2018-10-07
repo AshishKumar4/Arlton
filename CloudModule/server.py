@@ -39,7 +39,9 @@ def test():
 
 @app.route("/handlers/vehicle_update", methods=['GET', 'POST'])
 def vehicle_update():
+    global db
     dd = json.loads(request.form['data'])
+    db.saveVehicleData(dd)
     return jsonify(dd)
 
 if __name__ == '__main__':

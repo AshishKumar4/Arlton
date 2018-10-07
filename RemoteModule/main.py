@@ -26,7 +26,7 @@ def getData():
     w5 = random.randint(1,400)
     w6 = random.randint(1,400)
     w7 = random.randint(1,400)
-    data = { "data":json.dumps({'milage':20, 'fuel':w7, 'total_distance':w6, 'vnum':w5, 'total_tires':4, 'tires':{'1':w1, '2':w2, '3':w3, '4':w4}})}
+    data = { "data":json.dumps({'_id':'12345', 'milage':20, 'fuel':w7, 'total_distance':w6, 'vnum':w5, 'total_tires':4, 'tires':{'1':w1, '2':w2, '3':w3, '4':w4}})}
     return data
 
 def doPing(ip):
