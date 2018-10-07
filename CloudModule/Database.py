@@ -25,7 +25,7 @@ class Database:
 
     def saveVehicleData(self, data):
         d = self.db 
-        data['_rev'] = d[data['_id']]['_rev']
+        data['_rev'] = d['vehicles'][data['_id']]['_rev']
         d['vehicles'].save(data) 
         return True
         
