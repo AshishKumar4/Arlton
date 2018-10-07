@@ -81,9 +81,7 @@ def showall():
 
 @app.route("/handlers/vehicle_update", methods=['GET', 'POST'])
 def vehicle_update():
-    
-
-
+    return None
 
 if __name__ == '__main__':
    app.run()
