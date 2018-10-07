@@ -3,10 +3,11 @@ import subprocess
 import time
 import requests as r
 import random
+import json
 
 ovpnFile = "remote.ovpn"
 serverPvtIp = "10.8.0.1"
-serverPvtPort = 8443
+serverPvtPort = "8443"
 
 
 def sendData(ip, port, data):
@@ -22,13 +23,11 @@ def getData():
     w2 = random.randint(1,400)
     w3 = random.randint(1,400)
     w4 = random.randint(1,400)
-
     w5 = random.randint(1,400)
     w6 = random.randint(1,400)
     w7 = random.randint(1,400)
-    data = {'milage':20, 'fuel':w7, 'total_distance':w6, 'vnum':w5, 'total_tires':4, 'tires':{'1':w1, '2':w2, '3':w3, '4':w4}}
+    data = { "data":json.dumps({'milage':20, 'fuel':w7, 'total_distance':w6, 'vnum':w5, 'total_tires':4, 'tires':{'1':w1, '2':w2, '3':w3, '4':w4}})}
     return data
-
 
 def doPing(ip):
     response = os.system("ping -c 1 " + ip)
@@ -53,8 +52,7 @@ def initialCall():
 
 if __name__ == '__main__':
     print("\nArlton Remote Base Station Initializing...")
-    openVPN_Tunnel(ovpnFile)
-
+    #openVPN_Tunnel(ovpnFile)
     while True:
         data = getData()
         sendData(serverPvtIp, serverPvtPort, data)

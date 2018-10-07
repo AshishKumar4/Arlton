@@ -5,6 +5,8 @@ from Database import *
 from Vehicle import *
 from flask_sessionstore import Session
 
+import json
+
 app = Flask(__name__)
 app.config.update(
     DATABASE = 'Arlton-Server'
@@ -37,8 +39,8 @@ def test():
 
 @app.route("/handlers/vehicle_update", methods=['GET', 'POST'])
 def vehicle_update():
-    return jsonify(request.get_json(force = True))
-
+    dd = json.loads(request.form['data'])
+    return jsonify(dd)
 
 if __name__ == '__main__':
    app.run()
