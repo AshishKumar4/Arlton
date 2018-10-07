@@ -76,12 +76,5 @@ def showall():
         except Exception as ex:
             return jsonify(ex)
 
-
-############################################################## Server Handlers ##############################################################
-
-@app.route("/handlers/vehicle_update", methods=['GET', 'POST'])
-def vehicle_update():
-    return None
-
 if __name__ == '__main__':
    app.run()
